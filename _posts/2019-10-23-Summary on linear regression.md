@@ -13,6 +13,7 @@ tags:
 ---
 
 
+
 # Backgroud 
 
 Linear model is coommonly used in economic research. In this eassy I will use a practical case to very its assumption. The dataset contain 200 pieces of observation which is sales, TV, radio and newspaper. TV,radion and newspaper is amount of budget on these three means of advertising. Sales is amount of products sold. Now I will need to answer the follwing questions:
