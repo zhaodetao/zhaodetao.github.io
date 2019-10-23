@@ -1,13 +1,14 @@
 ---
 layout:     post
-title:      Xcode命令行工具管理
+title:      Summary on linear model--Based on advertisement data
 subtitle:   如何切换Xcode命令行工具
-date:       2018-05-05
-author:     BY
-header-img: img/post-bg-kuaidi.jpg
+date:       2019-10-23
+author:     DETAO
+header-img: img/data-analytics1.jpg
 catalog: true
 tags:
-    - Xcode
+    - Data Analysis
+    - Linear Model
     
 ---
 
