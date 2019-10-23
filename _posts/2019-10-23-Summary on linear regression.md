@@ -56,7 +56,7 @@ summary(fit3)
 
 From regression result we find that newspaper is not statiscally significant, which is controdict to single linear regression results. Then we use different ways to check whether they satisfy our model assumption.
 
-### normality
+### Normality
 
 Why need normality? Mainly because when dependent variables are normal distribution, it is possible for error term to normally distribute with zero mean. Normality is important especially when sample is small. Otherwise we may overestiamte or underestimate statistical inference. In R we often use qqplot functin to check normality. 
 
