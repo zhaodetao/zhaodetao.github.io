@@ -43,6 +43,13 @@ abline(coef(fit2),col="red")
 summary(fit2)        
 ```
 
+![png](/img/fit.png)
+![png](/img/tv.png)
+![png](/img/fit1.png)
+![png](/img/radio.png)
+![png](/img/fit2.png)
+![png](/img/newspaper.png)
+
 From regression result we could find that these advertisements could contribute sales. Until now our story is not over, what we get from above could not answer the quetion.
 
 ## Multiple linear regression
@@ -53,6 +60,7 @@ From above discussion we may have omitted variable prolem. Mainly because TV, ne
 fit3=lm(Sales~TV+Radio+Newspaper,data = data)
 summary(fit3)
 ```
+![png](/img/fit3.png)
 
 From regression result we find that newspaper is not statiscally significant, which is controdict to single linear regression results. Then we use different ways to check whether they satisfy our model assumption.
 
@@ -66,6 +74,8 @@ qqPlot(fit3,labels=row.names(data),id.metod="identity",simulate = T,main="QQ-plo
 data[6,]
 data[131,]
 ```
+![png](/img/qqplot.png)
+
 From the qq-pot we could see that most point lay within line which mean that normality satisties except the 6th and 131th observation. Normility is meet.
 
 ### Correlation of error term
@@ -75,6 +85,8 @@ Before refression, we need to gurantee error is independent among error term. Of
 ```{r}
 durbinWatsonTest(fit3)
 ```
+![png](/img/dtest.png)
+
 From result we that p-value is not significant which means that denpent variables are independent.
 
 ### Linearity
@@ -84,6 +96,7 @@ When using linear regression, we assume that the ture relationship is linear. If
 ```{r}
 crPlots(fit3)
 ```
+![png](/img/residualplot.png)
 
 From partical residual plot we could conclude that our linear assumption is right. 
 
@@ -95,6 +108,8 @@ Non-constant variance of error term issue commonly exists in our real life. But 
 ncvTest(fit3)
 spreadLevelPlot(fit3)
 ```
+![png](/img/test.png)
+![png](/img/spread.png)
 
 In this regression we find that the issue of non-constant variance of error term is not serious. 
 
@@ -108,7 +123,10 @@ res=cor(data[,-c(1,5)])
 corrplot(res,,type="upper")
 vif(fit3)
 ```
- Since indexes are small, there is no mulcollineaty problem. But we find that radio is positively related neaspaper. This may explain that newspaper avtually affect sales. As reason why newspaper is significant is that in the market where people invest more radion, more newspaper is invested. The factor that turly determine sales is radio not newspaper.
+![png](/img/cormatrix.png)
+![png](/img/vif.png)
+
+Since indexes are small, there is no mulcollineaty problem. But we find that radio is positively related neaspaper. This may explain that newspaper avtually affect sales. As reason why newspaper is significant is that in the market where people invest more radion, more newspaper is invested. The factor that turly determine sales is radio not newspaper.
  
 ### Outlier
 
@@ -117,6 +135,7 @@ We know that outlier could have significant effect on regression result, in R we
 ```{r}
 outlierTest(fit3)
 ```
+![png](/img/out.png)
 
 From resut we know that the 131th observation is a outlier. So when we do regression this piont should be omited.
 
@@ -135,6 +154,8 @@ hat.plot=function(fit3){
 hat.plot(fit3)
 ```
 
+![png](/img/indexplot.png)
+
 Figure above show that in this data set there certain high-leverage points which may cause inaccuracy in regression.
 
 ### Strong influence point
@@ -146,12 +167,16 @@ cutoff=4/(nrow(data)-length(fit3$coefficients)-2)
 plot(fit3,which = 4,cook.levels = cutoff)
 abline(h=cutoff,lty=2,col="red")
 ```
+![png](/img/cook.png)
+
 
 Surprsingly there only three strong influence points in our dataset. What's more the 6th and 131th point are also outlier. In addition, in R we could use influence plot to check outlier, high-leveragr and strong influence point in the same time.
 
 ```{r}
 influencePlot(fit3,main="Influence plot",sub="Circle size is proportionak to cook 's distance")
 ```
+![png](/img/inf.png)
+![png](/img/influence.png)
 
 Through our check know that there are 4 points that we should't include in our regression dataset. With them our regression result may be not accurate.
 
@@ -162,10 +187,14 @@ new_data=data[-c(6,17,102,131),]
 fit4=lm(Sales~TV+Radio+Newspaper,data = new_data)
 summary(fit4)
 ```
-
+![png](/img/fit4.png)
 
 # Conclusion
 
 Admittedly liear model is easily to use in some cases, however we should check its assumption befor we get our conclusion. Common assumptions that we need to check are normality of dependent variables, correlaion of error term, non-constant variance of error term, mulcollineraty, outlier, high-leverage and influential observation problems. Only after checking asumption satisfied could we get relatively reasonable results and explaination. 
 
 Now we could answer the question put forward before, advertisement budget is certainly related with sales. Both Tv and radio contribute to the sales of product. In additon, holding on other factors fixe increasing  1000 dollars on TV abvertisement budget could sell more 44 units of products. As well investing another 10000 dollars on radion would increase about 196 units of sold goods. Therefore we could conclude that it is reasonable to invest more on radio advertisement. Fortunately, we find that linear model is a wonderul estimate according to partial residual plot. Of course, newspaper is related to the radio and newspaper actually affect sales. As for the reason why single linear regression it is significant is because when more newspaper is invested, more radio is also added.
+
+# Reference
+* AN INTRODUCTION TO STATISTICAL LEARNING WITH APPLICATIONS IN R
+* R in Action
