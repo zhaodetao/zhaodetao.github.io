@@ -13,9 +13,6 @@ tags:
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 # Backgroud 
 
 Linear model is coommonly used in economic research. In this eassy I will use a practical case to very its assumption. The dataset contain 200 pieces of observation which is sales, TV, radio and newspaper. TV,radion and newspaper is amount of budget on these three means of advertising. Sales is amount of products sold. Now I will need to answer the follwing questions:
@@ -79,7 +76,7 @@ durbinWatsonTest(fit3)
 ```
 From result we that p-value is not significant which means that denpent variables are independent.
 
-### Liearity
+### Linearity
 
 When using linear regression, we assume that the ture relationship is linear. If actual relationship is not linear, linear regression may be not a good choice. Generally, we use residual plot to distinguish whether it is linear or not.
 
