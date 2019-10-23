@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Summary on linear model--Based on advertisement data
-subtitle:   如何切换Xcode命令行工具
+subtitle:   
 date:       2019-10-23
 author:     DETAO
 header-img: img/data-analytics1.jpg
