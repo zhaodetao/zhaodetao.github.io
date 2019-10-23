@@ -1,16 +1,16 @@
 ---
 layout:     post
-title:      Summary on linear regression--Based on advertisement data
+title:      Xcode命令行工具管理
 subtitle:   如何切换Xcode命令行工具
-date:       2019-10-23
-author:     DETAO
-header-img: img/data-analytics1.jpg
+date:       2018-05-05
+author:     BY
+header-img: img/post-bg-kuaidi.jpg
 catalog: true
 tags:
-    - Data Analysis
-    -Linear model
+    - Xcode
     
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
