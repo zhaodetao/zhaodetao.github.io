@@ -198,3 +198,7 @@ Now we could answer the question put forward before, advertisement budget is cer
 # Reference
 * AN INTRODUCTION TO STATISTICAL LEARNING WITH APPLICATIONS IN R
 * R in Action
+# Data and Code
+[Code](/assets/MicHW01.Rmd)
+[Data](/assets/advertise.csv)
+
