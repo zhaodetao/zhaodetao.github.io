@@ -43,6 +43,7 @@ grid=10^seq(10,-2,length=100) #range of lamda
 lasso.fit=glmnet(x.train,y.train,alpha = 1,lambda = grid)
 plot(lasso.fit)
 ```
+![png](/img/1241.png)
 
 Then I used the train data to estimate our model. Generally, people think that when $ \lambda $ belongs to $ \ 10^{-2} $ and $\ 10^{10} $ coukd cover all the condition. And we use different $ \lambda $to run our model and plot the results. We find that if we want to reduce our dimension we need large $ \lambda $. But how large is suitable we still don't know.
 
@@ -57,6 +58,21 @@ coe=coef(lasso.fit1)
 coe[which(rowSums(coe==0)==0),]  #find out nonzero coefficient
 ```
 
+![png](/img/1242.png)
+
+| variable |     coefficient  |
+| ----------| --------- | 
+| a2       |    20637      |
+| a8a      |     1.69      |
+| a281     |      1373     |
+| a34      |       -498    |
+| a35      |     -1865     |
+| a65      |   20859       |
+| a6703    |   94174       |
+| a81a     |   789         |
+| a81b     |   2402        |
+| a89h     |    4160       |
+
 In order to approach our puzzle above, we use the cross-validation to select our best $ \lambda$, and we find that proper lambda is indeed large. And we use selected value to eatimate our model. A person's gender, total income, how often read newspaper, whether like to free ride, attitude to social fairness, amount of house property, whether invest in stock market, whether spouse has a part-time job and the nature of parents' company is important to predict a househould income.
 
 ```{r}
@@ -65,5 +81,4 @@ y.test=test$householdin
 lasso.predict=predict(lasso.fit1,s=bestlam,newx =x.test)
 mean((lasso.predict-y.test)^2)
 ```
-
-In the end we test oue prediction result which is very large out of our exception. Mainly because our data has a lot dummy variables and category variables. This is what we need to improve in the future.
+In the end we test our prediction result (5240664834) which is very large out of our exception. Mainly because our data has a lot dummy variables and category variables. This is what we need to improve in the future.
