@@ -62,16 +62,16 @@ coe[which(rowSums(coe==0)==0),]  #find out nonzero coefficient
 
 | variable |     coefficient  |
 | ----------| --------- | 
-| a2       |    20637      |
-| a8a      |     1.69      |
-| a281     |      1373     |
-| a34      |       -498    |
-| a35      |     -1865     |
-| a65      |   20859       |
-| a6703    |   94174       |
-| a81a     |   789         |
-| a81b     |   2402        |
-| a89h     |    4160       |
+| gender       |    20637      |
+| income      |     1.69      |
+| read newspaper     |      1373     |
+| free rider      |       -498    |
+| social fairness      |     -1865     |
+| house property      |   20859       |
+| invest stock    |   94174       |
+| spouse part-time    |   789         |
+|   part-time income  |   2402        |
+|   nature of company  |    4160       |
 
 In order to approach our puzzle above, we use the cross-validation to select our best $ \lambda$, and we find that proper lambda is indeed large. And we use selected value to eatimate our model. A person's gender, total income, how often read newspaper, whether like to free ride, attitude to social fairness, amount of house property, whether invest in stock market, whether spouse has a part-time job and the nature of parents' company is important to predict a househould income.
 
